@@ -1,0 +1,35 @@
+<h3>Добавить Категорию</h3>
+<form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()"  >
+  <div class="col-md-4">
+    <label for="categoryName" class="form-label">Название</label>
+    <input type="text" class="form-control"
+           [ngClass]="this.form.controls['name'].invalid && this.form.controls['name'].touched?'is-invalid':''"
+           id="categoryName" formControlName="name"  required>
+    <div class="invalid-feedback">
+      <small *ngIf="this.form.controls['name'].hasError('required')"
+      >Поле не может быть пустым</small>
+      <small
+        *ngIf="this.form.controls['name'].hasError('minlength')"
+      >Минимум 2 символа</small>
+    </div>
+  </div>
+
+  <div class="col-12 mb-3">
+    <button class="btn btn-outline-dark me-2" [disabled]="form.invalid || form.disabled"
+    >Добавить</button>
+
+    <a [routerLink]="['/admin/categories']" class="btn btn-outline-dark" >Отмена</a>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

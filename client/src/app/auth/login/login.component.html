@@ -1,0 +1,38 @@
+<div class="row d-flex justify-content-center">
+  <form class="col-md-6 g-3" [formGroup]="form" (ngSubmit)="onSubmit()" >
+    <div class="row">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control  "
+             [ngClass]="{'is-invalid': form.controls['email'].invalid && form.controls['email'].touched}"
+             id="email" formControlName="email">
+      <div class="invalid-feedback">
+        <span *ngIf="form.controls['email'].errors?.['required']">Email не должен быть пустым</span>
+        <span *ngIf="form.controls['email'].errors?.['email']">Введите корректный email адрес</span>
+      </div>
+    </div>
+    <div class="row">
+      <label for="password" class="form-label">Пароль</label>
+      <input type="password" class="form-control "
+             [ngClass]="{'is-invalid': form.controls['password'].invalid && form.controls['password'].touched}"
+             id="password" formControlName="password" >
+      <div class="invalid-feedback">
+        <span *ngIf="form.controls['password'].errors?.['required']">Пароль не должен быть пустым</span>
+        <span *ngIf="form.controls['password'].errors?.['minlength'] && form.controls['password'].errors?.['minlength']['requiredLength']">
+            Пароль должен быть больше {{form.controls['password'].errors?.['minlength']['requiredLength']}} символов.
+            Сейчас {{form.controls['password'].errors?.['minlength']['actualLength']}}
+          </span>
+      </div>
+    </div>
+    <div class="row mt-4 d-flex justify-content-around gap-2">
+      <div class="col-lg-3 ps-2">
+        <button class="btn btn-outline-primary" [disabled]="form.invalid || form.disabled" type="submit">Логин</button>
+      </div>
+      <div class="col-lg-3">
+        <a class="btn btn-outline-danger" routerLink="/" >Отмена</a>
+      </div>
+    </div>
+  </form>
+
+
+</div>
+

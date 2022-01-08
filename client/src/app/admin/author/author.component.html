@@ -1,0 +1,26 @@
+<a [routerLink]="['new']" class="btn btn-outline-dark mt-2" >Добавить автора</a>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Имя</th>
+    <th scope="col">Фамилия</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let author of authors"   >
+    <th scope="row">{{author.id}}</th>
+    <td>{{author.firstName}}</td>
+    <td>{{author.lastName}}</td>
+    <td>
+      <a type="button" [routerLink]="['edit', author.id ]" class="btn btn-outline-warning">Редакитровать</a>
+    </td>
+    <td>
+      <a type="button"  (click)="delProduct(author.id)" class="btn btn-outline-danger">Удалить</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

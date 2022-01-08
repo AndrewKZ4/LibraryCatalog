@@ -1,0 +1,17 @@
+<button class="btn btn-outline-dark mt-3" routerLink="/catalog">Назад</button>
+<div class="card mb-3 mt-3">
+  <div class="row g-0">
+    <div class="col-md-5">
+      <img src="https://via.placeholder.com/250" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-7">
+      <div class="card-body">
+        <h1 class="card-title">{{book.title}}</h1>
+        <h5>Автор:{{book.author.firstName}} {{book.author.lastName}}</h5>
+        <h5>Категория:{{book.category.name}}</h5>
+        <p class="card-text">{{book.description}}</p>
+        <p class="card-text"><small class="text-muted">Количество страниц: {{book.pages_count}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>

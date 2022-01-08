@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+  <tr >
+    <th scope="col">#</th>
+    <th scope="col">Название</th>
+    <th scope="col">Автор</th>
+    <th></th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books">
+    <th scope="row">{{book.id}}</th>
+    <td>{{book.title}}</td>
+    <td>{{book.author.firstName}} {{book.author.lastName}}</td>
+    <td><a [routerLink]="['details', book.id ]" >Детали</a></td>
+  </tr>
+  </tbody>
+</table>

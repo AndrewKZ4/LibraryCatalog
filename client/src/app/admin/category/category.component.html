@@ -1,0 +1,24 @@
+<a [routerLink]="['new']" class="btn btn-outline-dark mt-2" >Добавить Категорию</a>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Имя</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let category of categories"   >
+    <th scope="row">{{category.id}}</th>
+    <td>{{category.name}}</td>
+    <td>
+      <a type="button" [routerLink]="['edit', category.id ]" class="btn btn-outline-warning">Редакитровать</a>
+    </td>
+    <td>
+      <a type="button"  (click)="delProduct(category.id)" class="btn btn-outline-danger">Удалить</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

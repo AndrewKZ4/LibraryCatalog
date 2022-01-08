@@ -1,0 +1,90 @@
+<h3>Изменить книгу</h3>
+<form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()"  >
+  <div class="col-md-4">
+    <label for="title" class="form-label">Название</label>
+    <input type="text" class="form-control"
+           [ngClass]="this.form.controls['title'].invalid && this.form.controls['title'].touched?'is-invalid':''"
+           id="title" formControlName="title"  required>
+    <div class="invalid-feedback">
+      <small *ngIf="this.form.controls['title'].hasError('required')"
+      >Поле не может быть пустым</small>
+      <small
+        *ngIf="this.form.controls['title'].hasError('minlength')"
+      >Минимум 2 символа</small>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="pagesCount" class="form-label">Количество страниц</label>
+    <input type="number" class="form-control"
+           [ngClass]="this.form.controls['pages_count'].invalid && this.form.controls['pages_count'].touched?'is-invalid':''"
+           id="pagesCount" formControlName="pages_count"  required>
+    <div class="invalid-feedback">
+      <small *ngIf="this.form.controls['pages_count'].hasError('required')"
+      >Поле не может быть пустым</small>
+      <small *ngIf="this.form.controls['pages_count'].hasError('min')"
+      >Минимум 1 страница</small>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <label for="categoryId" class="form-label">Категория</label>
+    <div class="mb-3">
+      <select class="form-select"
+              [ngClass]="this.form.controls['categoryId'].invalid && this.form.controls['categoryId'].touched?'is-invalid':''"
+              id="categoryId" formControlName="categoryId">
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+      </select>
+      <div class="invalid-feedback">
+        <small *ngIf="this.form.controls['categoryId'].hasError('required')"
+        >Поле не может быть пустым</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <label for="authorId" class="form-label">Автор</label>
+    <div class="mb-3">
+      <select class="form-select"
+              [ngClass]="this.form.controls['authorId'].invalid && this.form.controls['authorId'].touched?'is-invalid':''"
+              id="authorId" formControlName="authorId">
+        <option *ngFor="let author of authors" value="{{author.id}}">{{author.firstName}} {{author.lastName}}</option>
+      </select>
+      <div class="invalid-feedback">
+        <small *ngIf="this.form.controls['authorId'].hasError('required')"
+        >Поле не может быть пустым</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <label for="description" class="form-label">Описание</label>
+    <textarea class="form-control "
+              [ngClass]="this.form.controls['description'].invalid && this.form.controls['description'].touched?'is-invalid':''"
+              id="description" formControlName="description" ></textarea>
+    <div class="invalid-feedback">
+      <small *ngIf="this.form.controls['description'].hasError('required')"
+      >Поле не может быть пустым</small>
+      <small
+        *ngIf="this.form.controls['description'].hasError('minlength')"
+      >Минимум 20 символов</small>
+    </div>
+  </div>
+
+
+  <div class="col-12 mb-3">
+    <button class="btn btn-outline-dark me-2" [disabled]="form.invalid || form.disabled"
+    >Добавить</button>
+
+    <a [routerLink]="['/admin/books',]" class="btn btn-outline-dark " >Отмена</a>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

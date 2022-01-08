@@ -1,0 +1,30 @@
+<a [routerLink]="['new']" class="btn btn-outline-dark mt-2" >Добавить книгу</a>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Название</th>
+    <th scope="col">Автор</th>
+    <th scope="col">Категория</th>
+    <th scope="col">Количество страниц</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books"   >
+    <th scope="row">{{book.id}}</th>
+    <td>{{book.title}}</td>
+    <td>{{book.author.firstName}} {{book.author.lastName}}</td>
+    <td>{{book.category.name}}</td>
+    <td>{{book.pages_count}}</td>
+    <td>
+      <a type="button" [routerLink]="['edit', book.id ]" class="btn btn-outline-warning">Редакитровать</a>
+    </td>
+    <td>
+      <button type="button"  (click)="delProduct(book.id)" class="btn btn-outline-danger">Удалить</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

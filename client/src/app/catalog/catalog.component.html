@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-3">
+    <nav class="navbar navbar-dark bg-dark">
+          <ul class="navbar-nav me-auto mb-2 ms-4 mb-lg-0 flex-column">
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapseCategory" >
+                Категорий
+              </a>
+              <div class="collapse" id="collapseCategory">
+                <ul class="navbar-nav me-auto mb-2 ms-4 mb-lg-0 flex-column">
+                  <li class="nav-item" *ngFor="let category of categories">
+                    <a class="nav-link"  routerLink="category/{{category.id}}">{{category.name}}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#collapseAuthor" >
+                Авторы
+              </a>
+              <div class="collapse" id="collapseAuthor">
+                <ul class="navbar-nav me-auto mb-2 ms-4 mb-lg-0 flex-column">
+                  <li class="nav-item" *ngFor="let author of authors">
+                    <a class="nav-link"  routerLink="author/{{author.id}}">{{author.firstName}} {{author.lastName}}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+    </nav>
+
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<h3>Добавить автора</h3>
+<form class="row g-3" [formGroup]="form" (ngSubmit)="onSubmit()"  >
+  <div class="col-md-4">
+    <label for="authorFirstName" class="form-label">Имя</label>
+    <input type="text" class="form-control"
+           [ngClass]="this.form.controls['firstName'].invalid && this.form.controls['firstName'].touched?'is-invalid':''"
+           id="authorFirstName" formControlName="firstName"  required>
+    <div class="invalid-feedback">
+      <small *ngIf="this.form.controls['firstName'].hasError('required')"
+      >Поле не может быть пустым</small>
+      <small
+        *ngIf="this.form.controls['firstName'].hasError('minlength')"
+      >Минимум 2 символа</small>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="authorLastName" class="form-label">Фамилия</label>
+    <input type="text" class="form-control"
+           [ngClass]="this.form.controls['lastName'].invalid && this.form.controls['lastName'].touched?'is-invalid':''"
+           id="authorLastName" formControlName="lastName"  required>
+    <div class="invalid-feedback">
+      <small *ngIf="this.form.controls['lastName'].hasError('required')"
+      >Поле не может быть пустым</small>
+      <small
+        *ngIf="this.form.controls['lastName'].hasError('minlength')"
+      >Минимум 2 символа</small>
+    </div>
+  </div>
+
+
+  <div class="col-12 mb-3">
+    <button class="btn btn-outline-dark me-2" [disabled]="form.invalid || form.disabled"
+            >Добавить</button>
+
+    <a [routerLink]="['/admin/authors',]" class="btn btn-outline-dark " >Отмена</a>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
